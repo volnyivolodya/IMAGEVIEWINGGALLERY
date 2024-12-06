@@ -1,0 +1,52 @@
+h1 {
+  background-color: green;
+  margin: 0;
+}
+h1 {
+  color: aliceblue;
+}
+
+body {
+  margin: 0;
+}
+.container {
+  padding: 8px;
+}
+
+img {
+  border-radius: 0px;
+}
+figure {
+  color: aliceblue;
+  background-color: black;
+}
+button {
+  background: silver;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+button:hover {
+  background: red;
+  transition: background 2s ease;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+}
+.imageContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+img {
+  display: flex;
+  width: 100%;
+}
+@media (max-width: 360px) {
+  img {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+}

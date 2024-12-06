@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <h1>ГАЛЕРЕЯ ПРОСМОТРА ИЗОБРАЖЕНИЙ</h1>
+    <div id="slider">
+      <img src="https://loremflickr.com/900/600/nature?random=1" alt="Image" />
+      <img src="https://loremflickr.com/900/600/nature?random=2" alt="Image" />
+      <img src="https://loremflickr.com/900/600/nature?random=3" alt="Image" />
+    </div>
+    <button id="updateBtn">Обновить картинки</button>
+    <button id="addBtn">Добавить одну картинку</button>
+    <button id="removeBtn">Удалить одну картинку</button>
+    <script>
+      const updateBtnElement = document.getElementById("updateBtn");
+      const addBtnElement = document.getElementById("addBtn");
+      const removeBtnElement = document.getElementById("removeBtn");
+      const sliderElement = document.getElementById("slider");
+
+      updateBtnElement.addEventListener("click", function () {
+        const images = document.querySelectorAll("img");
+        images.forEach((img) => {
+          img.src = `https://loremflickr.com/320/240/nature?random=${Math.floor(
+            Math.random() * 100
+          )}`;
+        });
+      });
+
+      addBtnElement.addEventListener("click", function () {
+        const newImage = document.createElement("img");
+        newImage.src = `https://loremflickr.com/320/240/nature?random=${Math.floor(
+          Math.random() * 100
+        )}`;
+        newImage.alt = "Some photo";
+
+        sliderElement.appendChild(newImage);
+        removeBtnElement.removeAttribute("disabled");
+      });
+
+      removeBtnElement.addEventListener("click", function () {
+        const images = document.querySelectorAll("img");
+        if (images.length > 1) {
+          images[images.length - 1].remove();
+        }
+        if (images.length === 2) {
+          removeBtnElement.setAttribute("disabled", "true");
+        }
+      });
+
+      window.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>
